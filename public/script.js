@@ -16,7 +16,13 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
     }
 
     if (isNaN(deltaDeltaG) && !isNaN(deltaGR) && !isNaN(deltaGS)) {
-        deltaDeltaG = deltaGR - deltaGS;
+        deltaDeltaG = Math.abs(deltaGR - deltaGS);
+    }
+
+    if (deltaDeltaG <= 0) {
+        document.getElementById('prompt').style.display = 'block';
+        document.getElementById('prompt').textContent = 'Please ensure ∆∆G is greater than 0.';
+        return;
     }
 
     const ee = (Math.exp(deltaDeltaG / (R * temperatureK)) - 1) / (Math.exp(deltaDeltaG / (R * temperatureK)) + 1);

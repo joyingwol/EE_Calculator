@@ -26,8 +26,5 @@ button {
 #prompt {
     color: red;
     font-size: 0.8em;
-}
-
-#deltaGsInput {
-    display: none;
+    margin-top: 10px;
 }
